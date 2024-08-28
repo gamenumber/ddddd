@@ -9,13 +9,22 @@
     --main-color: #12562f;
     --title-color: #111;
     --bg-color: #f3f6f6;
+    --bg-color-dark: #232f28;
     --text-color: #666;
+    --white60: rgba(255, 255, 255, 0.6);
+}
+
+/* 선택할 때의 가상요소 ::selection */
+::selection {
+    background: var(--main-color);
+    color: #fff;
 }
 
 /* root */
 html {
     /* font-size: 100%; fz100p = 16px */
     font-size: 62.5%; /* fz62.5p = 10px = 1rem  */
+    scroll-behavior: smooth; /* 상단으로의 이동을 부드럽게만드는 명령어 */
 }
 body {
     font: 1.6rem/1.5 Pretendard, sans-serif;
@@ -54,10 +63,7 @@ hr,
     /* w134.4r+m0-a+bg */
     width: 134.4rem;
     margin: 0 auto;
-    background: rgba(255, 255, 0, 0.3);
-}
-
-#header {
+    /* background: rgba(255, 255, 0, 0.3); */
 }
 
 /* 전기가 나갔던 불쌍한 이들을 위하여 */
@@ -236,7 +242,7 @@ hr,
 
 .intro-list li {
     /* bd+w30r+mih26.2r */
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     width: 30rem;
     min-height: 26.2rem;
     display: flex; /* df */
@@ -288,7 +294,7 @@ hr,
 }
 
 .link-list li {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 
     /* flex-shrink: 1; 
     flex-grow: 1; 
@@ -298,6 +304,10 @@ hr,
     flex: 1 1 auto;
 
     background: no-repeat 0 0 / cover;
+
+    /* p8r-10r */
+    padding: 8rem 10rem;
+    position: relative; /* por (기준점) */
 }
 
 .link-list li:nth-child(1) {
@@ -306,4 +316,123 @@ hr,
 
 .link-list li:nth-child(2) {
     background-image: url(../img/jj.png);
+}
+
+.link-list li a {
+    display: flex; /* 플랙스박스 */
+    height: 100%; /* h100p */
+    align-items: center; /* aic */
+}
+
+.link-title {
+    /* background: #55f; bg */
+    color: #fff;
+    z-index: 1; /* flex의 아이템에도 z-index의 값을 줄 수 있다. */
+    /* transform이 적용된 요소도 z-index의 값을 줄 수 있다. */
+    transition: 0.4s; /* trs.4s */
+}
+
+.link-list li:hover .link-title {
+    transform: translateX(20px);
+}
+
+.link-title h4 {
+    /* fw900+fz5r+lh1 */
+    font-weight: 900;
+    font-size: 5rem;
+    line-height: 1;
+}
+.link-title p {
+    /* fw700+fz2r+mt2.1r */
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 2.1rem;
+}
+
+.link-title h4 b {
+    display: block; /* 블록의 특성을 이용해서 줄바꿈 */
+}
+
+.link-list li::before {
+    /* ct+poa+t0+l0+r0+b0+bg+op.6 */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: var(--main-color);
+    opacity: 0.6; */
+    background: rgba(
+        18,
+        86,
+        47,
+        0.6
+    ); /* backdrop-filter를 이용하려고
+     일반 opacity를 쓰지않고 background의 rgba를 쓴다. */
+    transition: 0.4s; /* trsn4s */
+}
+
+.link-list li:hover::before {
+    /* opacity: 0.8; op.8 */
+    background: rgba(18, 86, 47, 0.8);
+    backdrop-filter: blur(5px); /* backdrop-filter(블러: 5px정도) */
+}
+
+#footer {
+    /* p7.7r-0+bg */
+    padding: 7.7rem 0;
+    background: var(--bg-color-dark);
+    color: var(--white60);
+}
+
+.foot-logo {
+    /* w17.9r+h5r+bg */
+    width: 17.9rem;
+    height: 5rem;
+    background: url(../img/foot-logo.svg) no-repeat 0 0;
+}
+
+address {
+    /* mt2.8r */
+    margin-top: 2.8rem;
+}
+address dl {
+    display: flex; /* df : 플렉스박스 */
+    flex-wrap: wrap; /* fxww (줄바꿈) */
+    gap: 0.8rem 1.6rem; /* 로우겝이 먼저 언급되고 그 다음에 컬럼 갭 */
+    width: 28.5rem; /* w28.5r */
+    font-size: 1.5rem; /* fz1.5r */
+}
+address dl dt {
+    /* fw700 */
+    font-weight: 700;
+}
+address dl dd {
+    flex: 1 1 73%; /* fx1-1-73p */
+}
+
+address > p {
+    /* mt3.2r+fw700 */
+    margin-top: 3.2rem;
+    font-weight: 700;
+}
+
+.btn-top {
+    /* pof+b22.7r+r20r+w5.4r+h5.4r+bg+bdrs50p+bxsh+trs.4s+op0 */
+    position: fixed;
+    bottom: 22.7rem;
+    right: 20rem;
+    width: 5.4rem;
+    height: 5.4rem;
+    background: #000 url(../img/ico-top.svg) no-repeat center center;
+    background-size: contain; /* Ensures the icon is properly sized */
+    border-radius: 50%;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.4s; /* Use opacity transition only */
+}
+
+.btn-top.active {
+    opacity: 1; /* op1 */
 }
