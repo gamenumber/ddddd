@@ -23,6 +23,18 @@
     background-image: url(../img/sub-visual-4.jpg);
 }
 
+.login .sub-visual {
+    background: #fff;
+}
+
+.login .sub-title h2 {
+    color: #000;
+}
+
+.login .sub-title h2::before {
+    background: #000;
+}
+
 .sub-visual .inner {
     height: 100%; /* h100p */
     display: flex; /* 플렉스 박스 */
@@ -353,4 +365,124 @@
     background: var(--bg-color);
     font-weight: 700;
     color: var(--main-color);
+}
+
+/* 로그인 */
+.login-wrap {
+    /* w66r+m0-a+bg#ff5 */
+    width: 66rem;
+    margin: 0 auto;
+    /* background: #ff5; */
+    padding-top: 0 !important; /* 개별성 규칙을 강제로 무시하는 (엄청난 점수가 들어가는 코드) -> 남발은 금물*/
+    text-align: center;
+}
+
+.login-wrap h3 {
+    /* fw700+fz5r+c */
+    font-weight: 700;
+    font-size: 5rem;
+    color: #000;
+}
+
+.login-wrap p {
+    margin-top: 1.8rem;
+    font-size: 2rem;
+}
+
+.select-member {
+    /* bg#5f5+mt5.4r+df */
+    /* background: #5f5; */
+    margin-top: 5.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 5.6rem;
+}
+
+.select-member > div {
+    /* border: 1px solid #000; */
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.select-member > div input {
+    /* w2r+h2r+bd */
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #000;
+}
+
+.select-member > div label {
+    /* fw700+fz1.8r+c#000 */
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #000;
+}
+
+.f-row {
+    /* background: #5f5; */
+    margin-top: 5.4rem;
+    position: relative;
+    height: 6rem;
+}
+
+.f-row + .f-row {
+    margin-top: 3.2rem;
+}
+
+.f-row label {
+    /* poa+t50+l20 */
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.8rem;
+    transition: 0.4s;
+}
+
+.f-row input {
+    /* w100p+h100p+bd+p0-2+trs.4s */
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--black20);
+    padding: 0 2rem;
+    transition: 0.4s;
+}
+
+.f-row input:hover {
+    border-color: #000; /* bdc */
+}
+
+.f-row input:focus + label {
+    background: #fff;
+    font-size: 1.2rem;
+    top: -7px;
+    padding: 0 7px;
+}
+
+.btn-login {
+    /* mt3.2r+w100p+h6r+bg+c#fff+fw600+fz2.4r */
+    margin-top: 3.2rem;
+    width: 100%;
+    height: 6rem;
+    background: var(--main-color);
+    color: #fff;
+    font-weight: 600;
+    font-size: 2.4rem;
+}
+
+.save-id {
+    margin-top: 4rem;
+}
+
+.save-id > div {
+    display: flex; /* df */
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.save-id > div label {
+    /* fw700+fz1.8r+c#000 */
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #000;
 }

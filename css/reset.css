@@ -54,6 +54,9 @@ form,
 label,
 legend,
 button,
+input,
+select,
+textarea,
 table,
 caption,
 tbody,
@@ -127,4 +130,9 @@ table {
     width: 100%;
     border-collapse: collapse; /* 보더 합치기 */
     border-spacing: 0; /* 보더 여백 없애기 */
+}
+
+button,
+label {
+    cursor: pointer;
 }
